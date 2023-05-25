@@ -1,5 +1,6 @@
 import serial
 import requests
+from tweet import post_tuit
 
 # Establish serial connection
 ser = serial.Serial('COM1', 9600)  # Replace 'COM1' with the appropriate serial port
@@ -10,8 +11,10 @@ while True:
 
     if data == 'ta':  # High traffic on Street A
         print("High traffic on Street A")
+        post_tuit("High traffic on Street A")
     elif data == 'tt':  # High traffic in tunnel
         print("High traffic in tunnel")
+        post_tuit("High traffic in tunnel")
     elif data == 'gw':  # Get weather
         print("Getting weather data...")
 
